@@ -1,3 +1,9 @@
+```yaml
+nombre: Ezzat Alzahouri C. 
+matricula: A01710709. 
+proyecto: Sistema de Gestión de Biblioteca
+```
+
 # Sistema de Gestión de Biblioteca
 Este proyecto es un sistema de gestión de una biblioteca que permite administrar los libros disponibles, los préstamos realizados por los usuarios y el registro de nuevos libros en la biblioteca. Está desarrollado utilizando programación orientada a objetos y abarca los conceptos de herencia, polimorfismo, sobrecarga de operadores y manejo de excepciones.
 
