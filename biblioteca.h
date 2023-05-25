@@ -5,16 +5,18 @@
 #include "libro.h"
 #include "usuario.h"
 
+using namespace std;
+
 class Biblioteca {
 private:
-    std::vector<Libro> librosDisponibles;
-    std::vector<Libro> librosPrestados;
+    vector<Libro> librosDisponibles;
+    vector<Libro> librosPrestados;
 
 public:
     void agregarLibro(const Libro& libro);
     void prestarLibro(const Libro& libro, const Usuario& usuario);
     void devolverLibro(const Libro& libro, const Usuario& usuario);
-    std::vector<Libro> consultarLibrosDisponibles() const;
+    vector<Libro> consultarLibrosDisponibles() const;
 };
 
 #endif  // BIBLIOTECA_H

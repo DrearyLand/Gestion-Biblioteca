@@ -20,3 +20,24 @@ El proyecto está compuesto por las siguientes clases:
 - Libro: Clase que hereda de MaterialBibliotecario y representa un libro en la biblioteca. Tiene los atributos titulo, autor, anioPublicacion y genero, y los métodos correspondientes para acceder a ellos.
 - Usuario: Clase que representa a un usuario de la biblioteca. Contiene los atributos nombre e identificacion, y los métodos para obtener estos valores.
 - Biblioteca: Clase que actúa como controlador del sistema. Gestiona la lista de libros disponibles y prestados. Permite agregar nuevos libros, prestar y devolver libros, y consultar los libros disponibles en la biblioteca.
+
+## Requisitos previos
+Antes de ejecutar este programa, asegúrate de tener instalado el siguiente software:
+
+C++ Compiler - Un compilador C++ compatible con tu sistema operativo.
+
+## Descarga y ejecución
+Sigue estos pasos para descargar y ejecutar el código:
+
+1. Clona el repositorio en tu máquina local o descarga el código fuente en formato ZIP.
+2. Abre una terminal o línea de comandos y navega hasta la ubicación donde hayas descargado el código.
+3. Compila los archivos fuente utilizando el compilador C++. Ejecuta el siguiente comando en la terminal:
+```
+g++ .\biblioteca.cpp .\libro.cpp .\main.cpp .\material_bibliotecario.cpp .\usuario.cpp
+```
+4. Este comando compilará los archivos fuente y generará un archivo ejecutable llamado biblioteca en el directorio actual.
+5. Ejecuta el programa con el siguiente comando:
+```
+./a.exe
+```
+El programa se ejecutará y mostrará la lista de libros disponibles en la biblioteca.

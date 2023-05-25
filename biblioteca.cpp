@@ -1,5 +1,7 @@
 #include "biblioteca.h"
 
+using namespace std;
+
 void Biblioteca::agregarLibro(const Libro& libro) {
     librosDisponibles.push_back(libro);
 }
@@ -15,6 +17,6 @@ void Biblioteca::devolverLibro(const Libro& libro, const Usuario& usuario) {
     // ...
 }
 
-std::vector<Libro> Biblioteca::consultarLibrosDisponibles() const {
+vector<Libro> Biblioteca::consultarLibrosDisponibles() const {
     return librosDisponibles;
 }

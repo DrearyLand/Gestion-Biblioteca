@@ -3,17 +3,19 @@
 
 #include <string>
 
+using namespace std;
+
 class MaterialBibliotecario {
 private:
     int id;
-    std::string fechaAdquisicion;
+    string fechaAdquisicion;
 
 public:
-    MaterialBibliotecario(int id, std::string fechaAdquisicion);
+    MaterialBibliotecario(int id, string fechaAdquisicion);
 
     int getID() const;
-    std::string getFechaAdquisicion() const;
-    void setFechaAdquisicion(std::string fecha);
+    string getFechaAdquisicion() const;
+    void setFechaAdquisicion(string fecha);
 };
 
 #endif  // MATERIAL_BIBLIOTECARIO_H

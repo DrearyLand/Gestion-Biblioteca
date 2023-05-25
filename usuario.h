@@ -3,16 +3,18 @@
 
 #include <string>
 
+using namespace std;
+
 class Usuario {
 private:
-    std::string nombre;
-    std::string identificacion;
+    string nombre;
+    string identificacion;
 
 public:
-    Usuario(std::string nombre, std::string identificacion);
+    Usuario(string nombre, string identificacion);
 
-    std::string getNombre() const;
-    std::string getIdentificacion() const;
+    string getNombre() const;
+    string getIdentificacion() const;
 };
 
 #endif  // USUARIO_H
