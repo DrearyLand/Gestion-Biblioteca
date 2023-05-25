@@ -4,20 +4,24 @@
 #include <string>
 #include "material_bibliotecario.h"
 
+using namespace std;
+
 class Libro : public MaterialBibliotecario {
 private:
-    std::string titulo;
-    std::string autor;
+    string titulo;
+    string autor;
     int anioPublicacion;
-    std::string genero;
+    string genero;
 
 public:
-    Libro(int id, std::string fechaAdquisicion, std::string titulo, std::string autor, int anioPublicacion, std::string genero);
+    Libro(int id, string fechaAdquisicion, string titulo, string autor, int anioPublicacion, string genero);
 
-    std::string getTitulo() const;
-    std::string getAutor() const;
+    string getTitulo() const;
+    string getAutor() const;
     int getAnioPublicacion() const;
-    std::string getGenero() const;
+    string getGenero() const;
+
+    void mostrarInformacion() const;
 };
 
 #endif  // LIBRO_H

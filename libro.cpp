@@ -1,13 +1,16 @@
 #include "libro.h"
+#include <iostream>
 
-Libro::Libro(int id, std::string fechaAdquisicion, std::string titulo, std::string autor, int anioPublicacion, std::string genero)
+using namespace std;
+
+Libro::Libro(int id, string fechaAdquisicion, string titulo, string autor, int anioPublicacion, string genero)
     : MaterialBibliotecario(id, fechaAdquisicion), titulo(titulo), autor(autor), anioPublicacion(anioPublicacion), genero(genero) {}
 
-std::string Libro::getTitulo() const {
+string Libro::getTitulo() const {
     return titulo;
 }
 
-std::string Libro::getAutor() const {
+string Libro::getAutor() const {
     return autor;
 }
 
@@ -15,6 +18,13 @@ int Libro::getAnioPublicacion() const {
     return anioPublicacion;
 }
 
-std::string Libro::getGenero() const {
+string Libro::getGenero() const {
     return genero;
+}
+
+void Libro::mostrarInformacion() const {
+    cout << "Título: " << titulo << endl;
+    cout << "Autor: " << autor << endl;
+    cout << "Año de publicación: " << anioPublicacion << endl;
+    cout << "Género: " << genero << endl;
 }

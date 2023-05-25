@@ -1,15 +1,21 @@
-#include "material_bibliotecario.h"
+#ifndef MATERIAL_BIBLIOTECARIO_H
+#define MATERIAL_BIBLIOTECARIO_H
 
-MaterialBibliotecario::MaterialBibliotecario(int id, std::string fechaAdquisicion) : id(id), fechaAdquisicion(fechaAdquisicion) {}
+#include <string>
 
-int MaterialBibliotecario::getID() const {
-    return id;
-}
+using namespace std;
 
-std::string MaterialBibliotecario::getFechaAdquisicion() const {
-    return fechaAdquisicion;
-}
+class MaterialBibliotecario {
+private:
+    int id;
+    string fechaAdquisicion;
 
-void MaterialBibliotecario::setFechaAdquisicion(std::string fecha) {
-    fechaAdquisicion = fecha;
-}
+public:
+    MaterialBibliotecario(int id, string fechaAdquisicion);
+
+    int getID() const;
+    string getFechaAdquisicion() const;
+    void setFechaAdquisicion(string fecha);
+};
+
+#endif  // MATERIAL_BIBLIOTECARIO_H
