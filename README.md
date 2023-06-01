@@ -45,7 +45,7 @@ Sigue estos pasos para descargar y ejecutar el código:
 2. Abre una terminal o línea de comandos y navega hasta la ubicación donde hayas descargado el código.
 3. Compila los archivos fuente utilizando el compilador C++. Ejecuta el siguiente comando en la terminal:
 ```
-g++ .\biblioteca.cpp .\libro.cpp .\main.cpp .\material_bibliotecario.cpp .\usuario.cpp
+g++ .\main.cpp
 ```
 4. Este comando compilará los archivos fuente y generará un archivo ejecutable llamado biblioteca en el directorio actual.
 5. Ejecuta el programa con el siguiente comando:
