@@ -1,139 +1,71 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
 
 using namespace std;
 
-class MaterialBibliotecario {
-private:
-    int id;
-    string fechaAdquisicion;
-
-public:
-    // Constructor de la clase MaterialBibliotecario
-    MaterialBibliotecario(int id, string fechaAdquisicion) : id(id), fechaAdquisicion(fechaAdquisicion) {}
-
-    // Getter para el ID
-    int getID() const {
-        return id;
-    }
-
-    // Getter para la fecha de adquisición
-    string getFechaAdquisicion() const {
-        return fechaAdquisicion;
-    }
-
-    // Setter para la fecha de adquisición
-    void setFechaAdquisicion(string fecha) {
-        fechaAdquisicion = fecha;
-    }
-
-    // Método virtual para imprimir información del material bibliotecario
-    virtual void imprimirInformacion() const {
-        cout << "ID: " << id << ", Fecha de adquisición: " << fechaAdquisicion << endl;
-    }
+class material_bibliotecario{
+    private:
+        int id;
+        string fechaAdquisicion;
+    public:
+        material_bibliotecario(int,string);
+        material_bibliotecario(int,string,string,string);
+        virtual void mostrarInfo();
 };
 
-class Libro : public MaterialBibliotecario {
-private:
-    string titulo;
-    string autor;
-    int anioPublicacion;
-    string genero;
-
-public:
-    // Constructor de la clase Libro
-    Libro(int id, string fechaAdquisicion, string titulo, string autor, int anioPublicacion, string genero)
-        : MaterialBibliotecario(id, fechaAdquisicion), titulo(titulo), autor(autor), anioPublicacion(anioPublicacion), genero(genero) {}
-
-    // Getter para el título del libro
-    string getTitulo() const {
-        return titulo;
-    }
-
-    // Getter para el autor del libro
-    string getAutor() const {
-        return autor;
-    }
-
-    // Getter para el año de publicación del libro
-    int getAnioPublicacion() const {
-        return anioPublicacion;
-    }
-
-    // Getter para el género del libro
-    string getGenero() const {
-        return genero;
-    }
-
-    // Sobrecarga del operador de salida para imprimir información del libro
-    friend ostream& operator<<(ostream& os, const Libro& libro) {
-        os << "Titulo: " << libro.titulo << ", Autor: " << libro.autor << ", Ano de publicacion: " << libro.anioPublicacion << ", Genero: " << libro.genero;
-        return os;
-    }
-
-    // Sobreescritura del método para imprimir información del libro
-    void imprimirInformacion() const override {
-        cout << "Libro: " << titulo << ", Autor: " << autor << ", Ano de publicacion: " << anioPublicacion << ", Genero: " << genero << endl;
-    }
+class libro : public material_bibliotecario{
+    private:
+        string titulo,autor,genero;
+        int anioPublicacion;
+    public:
+        libro(int,string,string,string,string,int);
+        void mostrarInfo();
 };
 
-class Usuario {
-private:
-    string nombre;
-    string identificacion;
 
-public:
-    // Constructor de la clase Usuario
-    Usuario(string nombre, string identificacion) : nombre(nombre), identificacion(identificacion) {}
 
-    // Getter para el nombre del usuario
-    string getNombre() const {
-        return nombre;
+material_bibliotecario::material_bibliotecario(int _id,string _fechaAdquisicion){
+    id = _id;
+    fechaAdquisicion = _fechaAdquisicion;
+}
+
+material_bibliotecario::material_bibliotecario(int _id,string dia,string mes, string anio){
+    id = _id;
+    fechaAdquisicion = anio+"-"+mes+"-"+dia;
+}
+
+libro::libro(int _id,string _fechaAdquisicion,string _titulo,string _autor,string _genero,int _anioPublicacion) : material_bibliotecario(_id,_fechaAdquisicion){
+    titulo = _titulo;
+    autor = _autor;
+    genero = _genero;
+    anioPublicacion = _anioPublicacion;
+}
+
+void material_bibliotecario::mostrarInfo(){
+    cout<<"Id del libro: "<<id<<endl;
+    cout<<"Fecha de Adquisicion: "<<fechaAdquisicion<<endl;
+}
+
+void libro::mostrarInfo(){
+    material_bibliotecario::mostrarInfo();
+    cout<<"Titulo: "<<titulo<<endl;
+    cout<<"Autor: "<<autor<<endl;
+    cout<<"Genero: "<<genero<<endl;
+    cout<<"Anio de Publicacion: "<<anioPublicacion<<endl;
+}
+
+int main(){
+    material_bibliotecario *libros[5];
+
+    libros[0] = new libro(1, "2023-06-08", "El Gran Gatsby", "F. Scott Fitzgerald", "Novela", 1925);
+    libros[1] = new libro(2, "15/02/2023", "1984", "George Orwell", "Ciencia ficcion",1949);
+    libros[2] = new libro(3, "10/03/2023", "Orgullo y prejuicio", "Jane Austen", "Novela romantica",1813);
+    libros[3] = new libro(4, "05/04/2023", "Don Quijote de la Mancha", "Miguel de Cervantes", "Novela",1605);
+    libros[4] = new libro(5, "20/05/2023", "Cien anos de soledad", "Gabriel Garcia Marquez", "Realismo magico",1967);
+
+    for (int i = 0; i < 5; i++) {
+        libros[i]->mostrarInfo();
+        cout << "\n";
     }
-
-    // Getter para la identificación del usuario
-    string getIdentificacion() const {
-        return identificacion;
-    }
-};
-
-class Biblioteca {
-private:
-    vector<MaterialBibliotecario*> materialesBibliotecarios;
-
-public:
-    // Función para agregar un material bibliotecario a la biblioteca
-    void agregarMaterialBibliotecario(MaterialBibliotecario* material) {
-        materialesBibliotecarios.push_back(material);
-    }
-
-    // Función para imprimir la información de todos los materiales en la biblioteca
-    void imprimirInformacionMateriales() const {
-        for (const auto& material : materialesBibliotecarios) {
-            material->imprimirInformacion();
-        }
-    }
-};
-
-int main() {
-    Biblioteca biblioteca;
-
-    // Creación de objetos Libro
-    Libro libro1(1, "01/01/2023", "El Gran Gatsby", "F. Scott Fitzgerald", 1925, "Novela");
-    Libro libro2(2, "15/02/2023", "1984", "George Orwell", 1949, "Ciencia ficcion");
-    Libro libro3(3, "10/03/2023", "Orgullo y prejuicio", "Jane Austen", 1813, "Novela romantica");
-    Libro libro4(4, "05/04/2023", "Don Quijote de la Mancha", "Miguel de Cervantes", 1605, "Novela");
-    Libro libro5(5, "20/05/2023", "Cien anos de soledad", "Gabriel Garcia Marquez", 1967, "Realismo magico");
-
-    // Agregar los libros a la biblioteca
-    biblioteca.agregarMaterialBibliotecario(&libro1);
-    biblioteca.agregarMaterialBibliotecario(&libro2);
-    biblioteca.agregarMaterialBibliotecario(&libro3);
-    biblioteca.agregarMaterialBibliotecario(&libro4);
-    biblioteca.agregarMaterialBibliotecario(&libro5);
-
-    // Imprimir información de los materiales en la biblioteca
-    biblioteca.imprimirInformacionMateriales();
-
+    
     return 0;
 }
