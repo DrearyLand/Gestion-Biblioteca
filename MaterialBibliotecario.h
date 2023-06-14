@@ -22,6 +22,7 @@ class MaterialBibliotecario{
         bool getDisponibilidad(){
             return disponibilidad;
         }
+
 };
 
 
@@ -33,6 +34,7 @@ MaterialBibliotecario::MaterialBibliotecario(){
     disponibilidad = false;
     fechaAdquisicion = "";
 }
+
 MaterialBibliotecario::MaterialBibliotecario(int _id,string _fechaAdquisicion,bool _disponibilidad,string _titulo){
     id = _id;
     fechaAdquisicion = _fechaAdquisicion;

@@ -15,7 +15,8 @@ class Biblioteca{
         Biblioteca();
         // Método que imprime el contenido de la Biblioteca
         void imprimirContenido();
-        //void imprimirContenidoDisponible();
+        void imprimirContenidoDisponible();
+        void agregarContenido();
 };
 
 
@@ -34,6 +35,7 @@ Biblioteca::Biblioteca(){
     contenido.push_back(new Revista(10,"2023-10-16", true, "Health & Wellness", "Robert Wilson", "Healthy Living Media", 6));
 }
 
+
 void Biblioteca::imprimirContenido(){
     cout<<"\n\nTodo el contenido: "<<endl<<"______________________________________\n\n";
     for(MaterialBibliotecario *con : contenido){
@@ -48,16 +50,64 @@ void Biblioteca::imprimirContenido(){
     }
 }
 
-// void Biblioteca::imprimirContenidoDisponible(){
-//     cout<<"\n\nContenido Disponible: "<<endl<<"______________________________________\n\n";
-//     for(MaterialBibliotecario *con : contenido){
-//         if(dynamic_cast<Libro *>(con)){
-//             cout << "\nLibro: " << endl;
-//             con->mostrarInfo();
-//         }
-//         else{
-//             cout << "\nRevista: " << endl;
-//             con->mostrarInfo();       
-//         }
-//     }
-// }
+void Biblioteca::imprimirContenidoDisponible(){
+    cout<<"\n\nContenido Disponible: "<<endl<<"______________________________________\n\n";
+    for(MaterialBibliotecario *con : contenido){
+        if(dynamic_cast<Libro *>(con)){
+            if (con->MaterialBibliotecario::getDisponibilidad()) {
+                    cout << "\nLibro: " << endl;
+                    con->mostrarInfo();
+            }
+        }
+        else{
+            if (con->MaterialBibliotecario::getDisponibilidad()) {
+                    cout << "\nRevista: " << endl;
+                    con->mostrarInfo(); 
+            }      
+        }
+    }
+}
+
+void Biblioteca::agregarContenido() {
+    int tipo;
+    cout << "Ingrese el tipo de contenido a agregar (1 para libro, 2 para revista): ";
+    cin >> tipo;
+
+    int id,anioPublicacion,volumen;
+    string fecha,titulo,autor,genero,editor,editorial;
+    bool disponibilidad;
+    
+
+    cout << "Ingrese el ID: ";
+    cin >> id;
+    cout << "Ingrese la fecha de adquisicion (YYYY-MM-DD): ";
+    cin >> fecha;
+    cout << "Ingrese la disponibilidad (1 para disponible, 0 para no disponible): ";
+    cin >> disponibilidad;
+    cout << "Ingrese el titulo del contenido: ";
+    cin.ignore(); // Limpiar el buffer del teclado antes de getline
+    getline(cin, titulo);
+
+    if (tipo == 1) {
+        cout << "Ingrese el autor del libro: ";
+        getline(cin, autor);
+        cout << "Ingrese el genero del libro: ";
+        getline(cin, genero);
+        cout << "Ingrese el anio de publicacion del libro: ";
+        cin >> anioPublicacion;
+        contenido.push_back(new Libro(id, fecha, disponibilidad, titulo, autor, genero, anioPublicacion));
+        cout << "Libro agregado exitosamente." << endl;
+    } else if (tipo == 2) {
+        cout << "Ingrese el editor de la revista: ";
+        getline(cin, editor);
+        cout << "Ingrese el editorial de la revista: ";
+        getline(cin, editorial);
+        cout << "Ingrese el volumen de la revista: ";
+        cin >> volumen;
+        contenido.push_back(new Revista(id, fecha, disponibilidad, titulo, editor, editorial, volumen));
+        cout << "Revista agregada exitosamente." << endl;
+    } else {
+        cout << "Tipo de contenido invalido." << endl;
+    }
+}
+
