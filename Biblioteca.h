@@ -1,5 +1,20 @@
+/*
+ * Proyecto Gestion de Biblioteca
+ * Ezzat Alzahouri Campos
+ * A01710709
+ * 14/06/2023
+ *
+ * La clase "Biblioteca" encapsula la funcionalidad de una biblioteca, 
+ * permitiendo la visualización del contenido, la visualización del 
+ * contenido disponible y la adición de nuevo contenido. 
+ * Además, utiliza la herencia y el polimorfismo para manejar diferentes
+ * tipos de materiales bibliotecarios de manera eficiente.
+ */
+
+//Bibliotecas necesarias
 #include<iostream>
 #include<vector>
+//Clases necesarias
 #include "MaterialBibliotecario.h"
 #include "Libro.h"
 #include "Revista.h"
@@ -35,7 +50,18 @@ Biblioteca::Biblioteca(){
     contenido.push_back(new Revista(10,"2023-10-16", true, "Health & Wellness", "Robert Wilson", "Healthy Living Media", 6));
 }
 
-
+/**
+ * imprimirContenido imprimimos todo el contendio
+ *
+ * Esta función recorre todo el vector de punteros "contenido"
+ * y revisa que tipo de contenido es, de esta manera muestra 
+ * todo el contenido mencionando si es Libro o Revista, manda a
+ * llamar a mostrarInfo() para imprimir las caracteristicas de 
+ * cualquier objeto en el vector.
+ *
+ * @param 
+ * @return
+ */
 void Biblioteca::imprimirContenido(){
     cout<<"\n\nTodo el contenido: "<<endl<<"______________________________________\n\n";
     for(MaterialBibliotecario *con : contenido){
@@ -50,6 +76,17 @@ void Biblioteca::imprimirContenido(){
     }
 }
 
+/**
+ * imprimirContenidoDisponible imprimimos todo el contendio disponible
+ *
+ * Esta función de igual manera que imprimeContenido() usa un 
+ * ciclo for para recorrer el vector, la diferencia es que verificara
+ * con un getter "getDisponibilidad()" de  MaterialBibliotecario
+ * si el libro esta disponible o no, usando un valor booleano.
+ *
+ * @param 
+ * @return
+ */
 void Biblioteca::imprimirContenidoDisponible(){
     cout<<"\n\nContenido Disponible: "<<endl<<"______________________________________\n\n";
     for(MaterialBibliotecario *con : contenido){
@@ -68,6 +105,18 @@ void Biblioteca::imprimirContenidoDisponible(){
     }
 }
 
+/**
+ * agregarContenido agrega contenido a la biblioteca
+ *
+ * Esta función establece una comunicacion entre user y program
+ * el usuario tendra que ingresar los datos necesarios para 
+ * agregar un libro o una revista a la biblioteca, se le solicitaran
+ * uno por uno y ya que este completado lo agregara al vector para despues
+ * poder imprimir el contenido actualizado.
+ * 
+ * @param 
+ * @return
+ */
 void Biblioteca::agregarContenido() {
     int tipo;
     cout << "Ingrese el tipo de contenido a agregar (1 para libro, 2 para revista): ";

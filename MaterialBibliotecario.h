@@ -1,9 +1,24 @@
+/*
+ * Proyecto Gestion de Biblioteca
+ * Ezzat Alzahouri Campos
+ * A01710709
+ * 14/06/2023
+ *
+ * La clase "MaterialBibliotecario" sirve como una clase padre abstracta 
+ * que proporciona una estructura básica para representar un material bibliotecario.
+ * Las clases derivadas (como "Libro" y "Revista") deben heredar de esta clase y 
+ * proporcionar su propia implementación del método mostrarInfo(). 
+ * Esto permite tratar diferentes tipos de materiales bibliotecarios de manera 
+ * uniforme y acceder a su información común a través de la clase padre.
+ */
+
+
 #ifndef MaterialBibliotecario_H
 #define MaterialBibliotecario_H
+//Bibliotecas necesarias
 #include<iostream>
 
 using namespace std;
-
 
 // Clase padre abstracta que representa material bibliotecario
 class MaterialBibliotecario{

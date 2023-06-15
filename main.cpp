@@ -12,8 +12,7 @@
  * la biblioteca.
  */
 
-
-//Bibliotecas básicas
+//Bibliotecas necesarias
 #include<iostream>
 #include<vector>
 //Objetos necesarios

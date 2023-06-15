@@ -1,4 +1,17 @@
+/*
+ * Proyecto Gestion de Biblioteca
+ * Ezzat Alzahouri Campos
+ * A01710709
+ * 14/06/2023
+ *
+ * Clase Revista la cual hereda de Material Bibliotecario
+ * y recibe tanto metodos como atributos, en esta clase 
+ * instanciamos los valores necesarios para crear el objeto.
+ */
+
+//Bibliotecas necesarias
 #include<iostream>
+//Clases necesarias
 #include "MaterialBibliotecario.h"
 
 using namespace std;
@@ -29,6 +42,16 @@ Revista::Revista(int _id,string dia,string mes, string anio,bool _disponibilidad
     editorial = _editorial;
     volumen = _volumen;
 }
+
+/**
+ * mostrarInfo mostrar toda la información de la revista
+ *
+ * La función mostrarInfo() dentro de la clase Revista 
+ * imprime por pantalla la información específica de una revista.
+ * 
+ * @param 
+ * @return
+ */
 
 void Revista::mostrarInfo(){
     cout<<"Id de la Revista: "<<id<<endl;

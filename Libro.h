@@ -1,4 +1,17 @@
+/*
+ * Proyecto Gestion de Biblioteca
+ * Ezzat Alzahouri Campos
+ * A01710709
+ * 14/06/2023
+ *
+ * Clase Libro la cual hereda de Material Bibliotecario
+ * y recibe tanto metodos como atributos, en esta clase 
+ * instanciamos los valores necesarios para crear el objeto.
+ */
+
+//Bibliotecas necesarias
 #include<iostream>
+//Clases necesarias
 #include "MaterialBibliotecario.h"
 
 using namespace std;
@@ -30,6 +43,15 @@ Libro::Libro(int _id,string dia,string mes, string anio,bool _disponibilidad,str
     anioPublicacion = _anioPublicacion;
 }
 
+/**
+ * mostrarInfo mostrar toda la información del libro 
+ *
+ * La función mostrarInfo() dentro de la clase Libro 
+ * imprime por pantalla la información específica de un libro.
+ * 
+ * @param 
+ * @return
+ */
 void Libro::mostrarInfo(){
     cout<<"Id del Libro: "<<id<<endl;
     cout<<"Fecha de Adquisicion: "<<fechaAdquisicion<<endl;
